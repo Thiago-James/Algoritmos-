@@ -4,7 +4,6 @@ import time
 
 
 def heapify(lista, tamanho, indice):
-  # Ajusta a subárvore com raiz em 'indice' para manter a propriedade de max-heap
   while True:
     maior = indice
     esquerda = 2 * indice + 1
@@ -26,11 +25,9 @@ def heapify(lista, tamanho, indice):
 def heap_sort(lista):
   tamanho = len(lista)
 
-  # Constrói o heap máximo de baixo para cima
   for i in range(tamanho // 2 - 1, -1, -1):
     heapify(lista, tamanho, i)
 
-  # Move o maior elemento (raiz) para o fim e reduz o tamanho considerado
   for fim in range(tamanho - 1, 0, -1):
     lista[0], lista[fim] = lista[fim], lista[0]
     heapify(lista, fim, 0)
@@ -39,7 +36,6 @@ def heap_sort(lista):
 
 
 def resolver_caminho_arquivo(caminho):
-  # Se o arquivo ainda não existe, pode usar o caminho direto
   if not caminho.exists():
     return caminho
 
